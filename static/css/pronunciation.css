@@ -1,0 +1,259 @@
+.pronunciation-guide {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.phoneme-section {
+    margin-bottom: 40px;
+}
+
+.phoneme-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.phoneme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.phoneme-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.phoneme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.phoneme-symbol {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.phoneme-spellings h4,
+.phoneme-examples h4 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.phoneme-spellings p {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.phoneme-examples ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.phoneme-examples li {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.phoneme-examples li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+}
+
+.example-word {
+    font-weight: 500;
+}
+
+.ipa {
+    color: #e74c3c;
+    font-style: italic;
+}
+
+.audio-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.audio-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.audio-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.audio-button:active {
+    transform: scale(0.95);
+}
+
+/* Alphabet Combinations Styles */
+.alphabet-combinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.combination-card {
+    background-color: #f0f7ff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+    border-left: 4px solid #3498db;
+}
+
+.combination-header {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 8px;
+}
+
+.sound-group {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.sound-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sound-description {
+    font-size: 16px;
+    color: #34495e;
+    margin-bottom: 10px;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.examples-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.examples-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #7f8c8d;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+nav a.active {
+    color: #3498db;
+    font-weight: bold;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .phoneme-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .phoneme-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .phoneme-card {
+        padding: 15px;
+    }
+    
+    .phoneme-symbol {
+        font-size: 2rem;
+    }
+    
+    .alphabet-combinations {
+        grid-template-columns: 1fr;
+    }
+    
+    .combination-card {
+        padding: 12px;
+    }
+    
+    .combination-header {
+        font-size: 24px;
+    }
+    
+    .sound-description {
+        font-size: 14px;
+    }
+    
+    .examples-list {
+        margin-left: 8px;
+    }
+    
+    .examples-list li {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .example-word {
+        min-width: 100px;
+    }
+    
+    .ipa {
+        font-size: 0.9em;
+    }
+}

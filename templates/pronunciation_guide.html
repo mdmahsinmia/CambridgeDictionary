@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK English Pronunciation Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pronunciation.css') }}">
+</head>
+<body>
+    <header>
+        <h1>UK English Pronunciation Guide</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Dictionary</a>
+            <a href="{{ url_for('pronunciation_guide') }}" class="active">Pronunciation Guide</a>
+        </nav>
+    </header>
+
+    <main class="pronunciation-guide">
+        <section class="phoneme-section">
+            <h2>Vowels</h2>
+            <div class="phoneme-grid">
+                {% for phoneme in vowels %}
+                <div class="phoneme-card">
+                    <div class="phoneme-symbol">{{ phoneme.symbol }}</div>
+                    <div class="phoneme-spellings">
+                        <h4>Common Spellings:</h4>
+                        <p>{{ phoneme.spellings }}</p>
+                    </div>
+                    <div class="phoneme-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            {% for example in phoneme.examples %}
+                            <li>
+                                <span class="example-word">{{ example.word }}</span>
+                                <span class="ipa">/{{ example.pronunciation }}/</span>
+                                {% if example.audio_url %}
+                                <button class="audio-button" onclick="playAudio('{{ example.audio_url }}')" title="Listen to pronunciation">🔊</button>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="phoneme-section">
+            <h2>Diphthongs</h2>
+            <div class="phoneme-grid">
+                {% for phoneme in diphthongs %}
+                <div class="phoneme-card">
+                    <div class="phoneme-symbol">{{ phoneme.symbol }}</div>
+                    <div class="phoneme-spellings">
+                        <h4>Common Spellings:</h4>
+                        <p>{{ phoneme.spellings }}</p>
+                    </div>
+                    <div class="phoneme-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            {% for example in phoneme.examples %}
+                            <li>
+                                <span class="example-word">{{ example.word }}</span>
+                                <span class="ipa">/{{ example.pronunciation }}/</span>
+                                {% if example.audio_url %}
+                                <button class="audio-button" onclick="playAudio('{{ example.audio_url }}')" title="Listen to pronunciation">🔊</button>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="phoneme-section">
+            <h2>Consonants</h2>
+            <div class="phoneme-grid">
+                {% for phoneme in consonants %}
+                <div class="phoneme-card">
+                    <div class="phoneme-symbol">{{ phoneme.symbol }}</div>
+                    <div class="phoneme-spellings">
+                        <h4>Common Spellings:</h4>
+                        <p>{{ phoneme.spellings }}</p>
+                    </div>
+                    <div class="phoneme-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            {% for example in phoneme.examples %}
+                            <li>
+                                <span class="example-word">{{ example.word }}</span>
+                                <span class="ipa">/{{ example.pronunciation }}/</span>
+                                {% if example.audio_url %}
+                                <button class="audio-button" onclick="playAudio('{{ example.audio_url }}')" title="Listen to pronunciation">🔊</button>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="phoneme-section">
+            <h2>Alphabet Combinations</h2>
+            <div class="alphabet-combinations">
+                {% for combo in alphabet_combinations %}
+                <div class="combination-card">
+                    <h3 class="combination-header">{{ combo.combination }}</h3>
+                    {% for sound in combo.sounds %}
+                    <div class="sound-group">
+                        <h4 class="sound-description">{{ sound.sound }}</h4>
+                        <ul class="examples-list">
+                            {% for example in sound.examples %}
+                            <li>
+                                <span class="example-word">{{ example.word }}</span>
+                                <span class="ipa">/{{ example.pronunciation }}/</span>
+                                {% if example.audio_url %}
+                                <button class="audio-button" onclick="playAudio('{{ example.audio_url }}')" title="Listen to UK pronunciation">🔊</button>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cambridge Dictionary Web Application</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
